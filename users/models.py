@@ -15,7 +15,7 @@ class Users(models.Model):
     user_data_birthday = models.DateField(blank=True, null=True, verbose_name='Дата рождения')
     user_location = models.CharField(max_length=100, blank=True, null=True, verbose_name='Страна')
     user_country = models.CharField(max_length=50, blank=True, null=True, verbose_name='Гражданство')
-    phoneNumberRegex = RegexValidator(regex=r"^\+?1?\d{8,15}$") # для валидации
+    phoneNumberRegex = RegexValidator(regex=r"^\+?1?\d{8,15}$")  # для валидации
     user_first_phone = PhoneNumberField(unique=True, blank=True, null=True,verbose_name='Мобильный номер')
     user_second_phone = PhoneNumberField(unique=True, blank=True, null=True, verbose_name='Рабочий номер')
     user_email = models.EmailField(max_length=50, blank=True, null=True, verbose_name='Email')
