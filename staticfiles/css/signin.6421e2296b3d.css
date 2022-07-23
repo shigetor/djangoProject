@@ -1,0 +1,239 @@
+/*====================================================================================================*/
+*{padding: 0; margin: 0; border: 0;}
+*,*:after,*:before{-moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;}
+:focus,:active{outline: none;}
+a:focus,a:active{outline: none;}
+nav,footer,header,aside{display: block;}
+html,body{height: 100%; width: 100%; font-size: 100%; line-height: 1; font-size: 14px; -ms-text-side-adjust: 100%; -moz-text-side-adjust: 100%; -webkit-text-side-adjust: 100%;}
+input,button,textarea{font-family: inherit;}
+input::-ms-clear{display: none;}
+button{cursor: pointer;}
+button::-moz-focus-inner{padding: 0;border: 0}
+a, a:visited{text-decoration: none;}
+a:hover{text-decoration: none;}
+ul li{list-style: none;}
+img{vertical-align: top;}
+h1,h2,h3,h4,h5,h6{font-size: inherit; font-weight: 400;}
+/*====================================================================================================*/
+
+body{
+    font-family: arial;
+    background-color: black;
+}
+h3{
+    font-size: 60px;
+    color: white;
+    text-align: center;
+    padding: 30px;
+    text-transform: uppercase;
+    font-family: sans-serif;
+}
+
+.site{
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+}
+.site__header{
+    flex: 0 0 50px;
+    background-color: #333333;
+
+    opacity: 0;
+    animation-fill-mode: forwards;
+    animation-name: fadein;
+    animation-duration: 1.5s;
+    animation-delay: 0.5s;
+}
+.site__header__wrapper{
+    display: flex;
+    overflow: hidden;
+    max-width: 1200px;
+    height: 50px;
+    margin: 0 auto;
+    align-items: center;
+    justify-content: space-between;
+}
+.site__header__wrapper_content{
+    color: white;
+}
+.site__body{
+    max-width: 1200px;
+    margin: 0 auto;
+    flex: 1 1 auto;
+}
+.site__body__signbox{
+    margin: 150px auto;
+    width: 450px;
+    background-color: #101010;
+    border-radius: 30px;
+    overflow: hidden;
+    z-index: 2;
+    animation-name: signbox-translate-static;
+    animation-timing-function: ease-out;
+    animation-duration: 700ms;
+    animation-fill-mode: forwards;
+}
+.site__body__signbox__form{
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    justify-content: center;
+    height: 100%;
+}
+.site__body__signbox__form p{
+    display: block;
+    padding-left: 22px;
+    font-size: 20px;
+    color: #aaaaaa;
+}
+.site__body__signbox__form_input{
+    display: block;
+    margin-top: 3px;
+    margin-bottom: 30px;
+    padding: 15px;
+    padding-left: 22px;
+    font-size: 20px;
+    border-radius: 50px;
+    background-color: #cccccc;
+    transition-timing-function: ease-in-out;
+    transition-duration: 0.2s;
+}
+.site__body__signbox__form_input:focus{
+    box-shadow: 0 0 4px white;
+    background-color: white;
+}
+.site__body__signbox__form_button{
+    display: block;
+    align-self: center;
+    width: 200px;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    font-size: 30px;
+    background-color: #cccccc;
+    text-transform: uppercase;
+    padding: 10px;
+    border-radius: 50px;
+    transition-timing-function: ease-in-out;
+    transition-duration: 0.2s;
+    box-shadow: 0 3px 0 #777777;
+    top: 0;
+    position: relative;
+}
+.site__body__signbox__form_button:hover, .site__body__signbox__form_button:focus{
+    background-color: white;
+    box-shadow: 0 2px 0 #777777, 0 0 4px white;
+    top: 2px;
+}
+.site__body__signbox__form_a{
+    text-align: center;
+    color: white;
+    transition-timing-function: ease-in-out;
+    transition-duration: 0.2s;
+    align-self: center;
+    font-size: 16px;
+    font-family: sans-serif;
+    color: #cccccc;
+}
+.site__body__signbox__form_a:hover, .site__body__signbox__form_a:focus{
+    text-shadow: 0 0 1.5px white;
+    color: white;
+
+}
+.site__footer{
+    flex: 0 0 50px;
+    background-color: #131313;
+
+    opacity: 0;
+    animation-fill-mode: forwards;
+    animation-name: fadein;
+    animation-duration: 1.5s;
+    animation-delay: 0.5s;
+}
+.site__footer__wrapper{
+    display: flex;
+    overflow: hidden;
+    max-width: 1200px;
+    height: 50px;
+    margin: 0 auto;
+    align-items: center;
+    justify-content: space-between;
+}
+.site__footer__wrapper_content{
+    color: white;
+}
+
+@keyframes fadein {
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+@keyframes text-translate {
+    0%{
+        transform: translateX(150px);
+        opacity: 0;
+    }
+    15%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+@keyframes signbox-translate-static {
+    0%{
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    15%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+
+.text-animation-1{
+    font-size: 150px;
+    animation-name: text-animation;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-duration: 3s;
+    animation-delay: 1500ms;
+}
+.text-animation-2{
+    font-size: 150px;
+    animation-name: text-animation;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-duration: 3s;
+    animation-delay: 1900ms;
+}
+.text-animation-3{
+    font-size: 150px;
+    animation-name: text-animation;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-duration: 3s;
+    animation-delay: 2300ms;
+}
+@keyframes text-animation {
+    0%{
+        transform: translateX(0px);
+    }
+    /*
+    90%{
+        transform: translateX(8px);
+    }
+    */
+    100%{
+        transform: translateX(10px);
+    }
+}
+

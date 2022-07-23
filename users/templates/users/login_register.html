@@ -1,0 +1,57 @@
+{% extends 'main.html' %}
+{% load static %}
+
+{% block content %}
+
+    {% if page == 'register' %}
+        <div class="site">
+            <div class="site__body">
+                <div class="site__body_text">
+                    <p class="text-animation-1">REG</p>
+                    <p class="text-animation-2">IST</p>
+                    <p class="text-animation-3">ER:</p>
+                </div>
+                <div class="site__body__signbox">
+                    <form class="site__body__signbox__form" action="{% url "register" %}" method="POST">
+                        {% csrf_token %}
+                        <h3>sign up</h3>
+                        {% for field in form %}
+                        <div class="">
+{#                            <label for="formInput#text">{{field.label}}</label>#}
+                            {{field}}
+
+                            <!-- {% if field.help_text %}
+                    <small>{{field.help_text}}</small>
+                    {% endif %} -->
+
+                            {% for error in field.errors %}
+                                <p style="color: red;">{{error}}</p>
+                            {% endfor %}
+
+                        </div>
+
+                    {% endfor %}
+                    <input class="site__body__signbox__form_button" tabindex="5" type="submit" name="button" value="sign up">
+                        <a class="site__body__signbox__form_a" tabindex="6" href="{% url 'login' %}">Sign in instead</a>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    {% else %}
+        <div class="site__body">
+            <div class="site__body__signbox">
+                <form class="site__body__signbox__form" action="" method="POST">
+                    {% csrf_token %}
+                    <h3>sign in</h3>
+                    <input class="site__body__signbox__form_input" tabindex="1" type="text" name="username" value="" placeholder="username">
+                    <input class="site__body__signbox__form_input" tabindex="2" type="password" name="password" value="" placeholder="password">
+                    <input class="site__body__signbox__form_button" tabindex="3" type="submit" name="button" value="sign in">
+                    <a class="site__body__signbox__form_a" tabindex="4" href="{% url "register" %}">Create account</a>
+                </form>
+
+            </div>
+        </div>
+    {% endif %}
+
+{% endblock content %}
