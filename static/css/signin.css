@@ -1,4 +1,3 @@
-/*====================================================================================================*/
 *{padding: 0; margin: 0; border: 0;}
 *,*:after,*:before{-moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;}
 :focus,:active{outline: none;}
@@ -14,7 +13,6 @@ a:hover{text-decoration: none;}
 ul li{list-style: none;}
 img{vertical-align: top;}
 h1,h2,h3,h4,h5,h6{font-size: inherit; font-weight: 400;}
-/*====================================================================================================*/
 
 body{
     font-family: arial;
@@ -37,7 +35,6 @@ h3{
 .site__header{
     flex: 0 0 50px;
     background-color: #333333;
-
     opacity: 0;
     animation-fill-mode: forwards;
     animation-name: fadein;
@@ -67,8 +64,8 @@ h3{
     background-color: #101010;
     border-radius: 30px;
     overflow: hidden;
-    z-index: 2;
-    animation-name: signbox-translate-static;
+    opacity: 0;
+    animation-name: fadein-scale;
     animation-timing-function: ease-out;
     animation-duration: 700ms;
     animation-fill-mode: forwards;
@@ -137,12 +134,10 @@ h3{
 .site__body__signbox__form_a:hover, .site__body__signbox__form_a:focus{
     text-shadow: 0 0 1.5px white;
     color: white;
-
 }
 .site__footer{
     flex: 0 0 50px;
     background-color: #131313;
-
     opacity: 0;
     animation-fill-mode: forwards;
     animation-name: fadein;
@@ -170,70 +165,12 @@ h3{
         opacity: 1;
     }
 }
-@keyframes text-translate {
-    0%{
-        transform: translateX(150px);
-        opacity: 0;
-    }
-    15%{
-        opacity: 0;
-    }
-    100%{
-        opacity: 1;
-    }
-}
-@keyframes signbox-translate-static {
+@keyframes fadein-scale {
     0%{
         opacity: 0;
         transform: scale(0.95);
     }
-    15%{
-        opacity: 0;
-    }
     100%{
         opacity: 1;
     }
 }
-
-
-.text-animation-1{
-    font-size: 150px;
-    animation-name: text-animation;
-    animation-timing-function: ease-in-out;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
-    animation-duration: 3s;
-    animation-delay: 1500ms;
-}
-.text-animation-2{
-    font-size: 150px;
-    animation-name: text-animation;
-    animation-timing-function: ease-in-out;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
-    animation-duration: 3s;
-    animation-delay: 1900ms;
-}
-.text-animation-3{
-    font-size: 150px;
-    animation-name: text-animation;
-    animation-timing-function: ease-in-out;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
-    animation-duration: 3s;
-    animation-delay: 2300ms;
-}
-@keyframes text-animation {
-    0%{
-        transform: translateX(0px);
-    }
-    /*
-    90%{
-        transform: translateX(8px);
-    }
-    */
-    100%{
-        transform: translateX(10px);
-    }
-}
-
