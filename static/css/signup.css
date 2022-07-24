@@ -1,4 +1,3 @@
-/*====================================================================================================*/
 *{padding: 0; margin: 0; border: 0;}
 *,*:after,*:before{-moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;}
 :focus,:active{outline: none;}
@@ -14,29 +13,10 @@ a:hover{text-decoration: none;}
 ul li{list-style: none;}
 img{vertical-align: top;}
 h1,h2,h3,h4,h5,h6{font-size: inherit; font-weight: 400;}
-/*====================================================================================================*/
 
 body{
     font-family: arial;
     background-color: black;
-
-}
-input{
-    display: block;
-    margin-top: 3px;
-    margin-bottom: 30px;
-    padding: 15px;
-    padding-left: 22px;
-    font-size: 20px;
-    border-radius: 50px;
-    background-color: #cccccc;
-    transition-timing-function: ease-in-out;
-    transition-duration: 0.2s;
-    width: 100%;
-}
-input:focus{
-    box-shadow: 0 0 4px white;
-    background-color: white;
 }
 h3{
     font-size: 60px;
@@ -77,9 +57,7 @@ h3{
     align-items: center;
 }
 .site__body_text{
-
-        margin-left: 100px;
-
+    margin-left: 100px;
     color: white;
     font-size: 50px;
     letter-spacing: 10px;
@@ -97,7 +75,8 @@ h3{
     border-radius: 30px;
     overflow: hidden;
     z-index: 2;
-    animation-name: signbox-translate-static;
+    opacity: 0;
+    animation-name: fadein-scale;
     animation-timing-function: ease-out;
     animation-duration: 700ms;
     animation-fill-mode: forwards;
@@ -166,7 +145,6 @@ h3{
 .site__body__signbox__form_a:hover, .site__body__signbox__form_a:focus{
     text-shadow: 0 0 1.5px white;
     color: white;
-
 }
 .site__footer{
     flex: 0 0 50px;
@@ -185,17 +163,9 @@ h3{
     color: white;
 }
 
-@keyframes fadein {
-    0%{
-        opacity: 0;
-    }
-    100%{
-        opacity: 1;
-    }
-}
 @keyframes text-translate {
     0%{
-        transform: translateX(150px);
+        transform: translateX(100px);
         opacity: 0;
     }
     15%{
@@ -205,20 +175,15 @@ h3{
         opacity: 1;
     }
 }
-
-@keyframes signbox-translate-static {
+@keyframes fadein-scale {
     0%{
         opacity: 0;
         transform: scale(0.95);
     }
-    15%{
-        opacity: 0;
-    }
     100%{
         opacity: 1;
     }
 }
-
 
 .text-animation-1{
     font-size: 150px;
@@ -251,26 +216,16 @@ h3{
     0%{
         transform: translateX(0px);
     }
-    /*
-    90%{
-        transform: translateX(8px);
-    }
-    */
     100%{
         transform: translateX(10px);
     }
 }
 
-
 @media (max-width:992px) {
-
     .site__body{
         max-width: 550px;
     }
-
     .site__body_text{
         display: none;
     }
 }
-
-
