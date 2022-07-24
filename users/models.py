@@ -5,11 +5,13 @@ from django.contrib.auth.models import User
 import uuid
 
 
-class Users(models.Model):
+class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, null=True, blank=True)
     id = models.UUIDField(default=uuid.uuid4, unique=True, primary_key=True, editable=False)
     username = models.CharField(max_length=200, blank=True, null=True, verbose_name='Имя на сайте')
-    firstName = models.CharField(max_length=200, blank=True, null=True, verbose_name='Имя')
+    profile_image = models.ImageField(
+        null=True, blank=True, upload_to='profiles/', default="profiles/user-default.png")
+    name = models.CharField(max_length=200, blank=True, null=True, verbose_name='Имя')
     secondName = models.CharField(max_length=200, blank=True, null=True, verbose_name='Фамилия')
     lastName = models.CharField(max_length=200, blank=True, null=True, verbose_name='Отчество')
     user_data_birthday = models.DateField(blank=True, null=True, verbose_name='Дата рождения')
@@ -18,7 +20,7 @@ class Users(models.Model):
     phoneNumberRegex = RegexValidator(regex=r"^\+?1?\d{8,15}$")  # для валидации
     user_first_phone = PhoneNumberField(unique=True, blank=True, null=True,verbose_name='Мобильный номер')
     user_second_phone = PhoneNumberField(unique=True, blank=True, null=True, verbose_name='Рабочий номер')
-    user_email = models.EmailField(max_length=50, blank=True, null=True, verbose_name='Email')
+    email = models.EmailField(max_length=50, blank=True, null=True, verbose_name='Email')
     education = models.CharField(max_length=200, verbose_name="Высшее учебное заведение")
     user_education = models.CharField(max_length=200, blank=True, null=True, verbose_name='Специальность')
     year_ending = models.DateField(blank=True, null=True, verbose_name='Дата окончания учебы')
@@ -30,4 +32,4 @@ class Users(models.Model):
     class Meta:
         verbose_name = 'Пользователь'
         verbose_name_plural = ' Пользователи'
-        ordering = ['secondName']
+        ordering = ['is_created']

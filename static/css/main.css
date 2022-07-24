@@ -72,3 +72,12 @@
   text-align: left;
   margin-bottom: 3rem;
 }
+
+.alert {
+  position: fixed;
+  left: 50%;
+  top: 120px;
+  transform: translate(-50%, -50%);
+  color: red;
+  z-index: 99999;
+}
