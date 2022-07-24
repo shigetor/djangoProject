@@ -1,4 +1,3 @@
-/*====================================================================================================*/
 *{padding: 0; margin: 0; border: 0;}
 *,*:after,*:before{-moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;}
 :focus,:active{outline: none;}
@@ -13,8 +12,7 @@ a, a:visited{text-decoration: none;}
 a:hover{text-decoration: none;}
 ul li{list-style: none;}
 img{vertical-align: top;}
-h1,h2,h3,h4,h5,h6{ font-weight: 400;}
-/*====================================================================================================*/
+h1,h2,h3,h4,h5,h6{font-size: inherit; font-weight: 400;}
 
 body{
     font-family: arial;
@@ -28,9 +26,14 @@ body{
 }
 .site__header{
     flex: 0 0 50px;
-    background-color: #000000;
+    background-color: #000000dd;
     min-width: 100%;
     position: fixed;
+    z-index: 9;
+    opacity: 0;
+    animation-fill-mode: forwards;
+    animation-name: fadein;
+    animation-duration: 1.5s;
 }
 .site__header__wrapper{
     display: flex;
@@ -46,22 +49,82 @@ body{
 }
 .site__body{
     width: 100%;
-    margin: 50px auto 0 auto;
+    margin: 0px auto 0 auto;
     background-color: #eeeeee00;
     flex: 1 1 auto;
     color: white;
     display: flex;
-    /*flex-direction: column;*/
-    font-size: 100px;
+    flex-direction: column;
+    font-size: 20px;
 }
+.site__body__block1{
+    background-color: #000000;
+    width: 100vw;
+    opacity: 0;
+    animation-fill-mode: forwards;
+    animation-name: fadein;
+    animation-duration: 1.5s;
+    animation-delay: 200ms;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.site__body__block1_content{
 
-
-
-
-
+}
+.site__body__block2{
+    background-color: #080808;
+    width: 100vw;
+    opacity: 0;
+    animation-fill-mode: forwards;
+    animation-name: fadein;
+    animation-duration: 1.5s;
+    animation-delay: 400ms;
+    height: 900px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.site__body__block2_content{
+    max-width: 1200px;
+    margin-bottom: 20px;
+    font-size: 20px;
+    text-align: center;
+}
+.site__body__block3{
+    background-color: #0b0b0b;
+    width: 100vw;
+    opacity: 0;
+    animation-fill-mode: forwards;
+    animation-name: fadein;
+    animation-duration: 1.5s;
+    animation-delay: 600ms;
+    height: 900px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.site__body__block3__box{
+    display: flex;
+}
+.site__body__block3__box_content{
+    margin: 35px;
+    padding: 50px;
+    background-color: #111111;
+    border-radius: 20px;
+}
 .site__footer{
     flex: 0 0 50px;
     background-color: #33333300;
+    z-index: 9;
+    opacity: 0;
+    animation-fill-mode: forwards;
+    animation-name: fadein;
+    animation-duration: 1.5s;
 }
 .site__footer__wrapper{
     display: flex;
@@ -76,3 +139,11 @@ body{
     color: white;
 }
 
+@keyframes fadein {
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
