@@ -1,8 +1,11 @@
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from .forms import CustomUserCreationForm
 from django.contrib.auth import login, authenticate, logout
 from django.contrib import messages
+
+
 # from .utils import searchProfiles, paginateProfiles
 
 
@@ -62,3 +65,9 @@ def registerUser(request):
     context = {'page': page, 'form': form}
     return render(request, 'users/login_register.html', context)
 
+
+@login_required(login_url='login')
+def userAccount(request):
+    profile = request.user.profile
+    context = {'profile': profile}
+    return render(request, 'users/account.html', context)
