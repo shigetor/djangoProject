@@ -71,3 +71,7 @@ def userAccount(request):
     profile = request.user.profile
     context = {'profile': profile}
     return render(request, 'users/account.html', context)
+
+
+def homePage(request):
+    return  render(request, 'users/homePage.html')
