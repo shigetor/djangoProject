@@ -6,11 +6,6 @@
     {% if page == 'register' %}
         <div class="site">
             <div class="site__body">
-                <div class="site__body_text">
-                    <p class="text-animation-1">REG</p>
-                    <p class="text-animation-2">IST</p>
-                    <p class="text-animation-3">ER:</p>
-                </div>
                 <div class="site__body__signbox">
                     <form class="site__body__signbox__form" action="{% url "register" %}" method="POST">
                         {% csrf_token %}
