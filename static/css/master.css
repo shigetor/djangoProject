@@ -156,17 +156,41 @@ h3{
 
 .site__body__info{
     background-color: rgb(17, 17, 19);
-    width: 100%;
+    width: 100vw;
+    height: 330px;
     display: flex;
     flex-flow: row nowrap;
     justify-content: center;
     align-items: center;
     flex: 0 0 auto;
-
+    object-fit: cover;
     opacity: 0;
     animation-fill-mode: forwards;
     animation-name: fadein;
     animation-duration: 500ms;
+}
+.site__body__info__cover{
+    position: absolute;
+    overflow: hidden;
+    width: 100vw;
+    height: 330px;
+    z-index: -100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.cover{
+    object-fit: cover;
+    width: 100vw;
+    object-position: center;
+}
+.site__body__info__cover-tinted{
+    position: absolute;
+    overflow: hidden;
+    height: 330px;
+    width: 100vw;
+    z-index: -99;
+    background-color: rgba(0, 0, 0, 0.35);
 }
 .site__body__info-left{
     display: flex;
@@ -193,7 +217,7 @@ h3{
     margin: 15px;
     overflow: hidden;
 }
-.image img{
+.image{
     width: 300px;
     height: 300px;
     object-fit: cover;
@@ -246,10 +270,10 @@ h3{
 .site__body__settings_profile-section{
     font-size: 20px;
     font-weight: 300;
+    margin: 10px 0;
 }
 .site__body__settings_profile-section input{
     margin-top: 3px;
-    margin-bottom: 30px;
     padding: 5px;
     padding-left: 22px;
     font-size: 18px;
