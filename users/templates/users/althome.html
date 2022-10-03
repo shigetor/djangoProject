@@ -1,54 +1,148 @@
 {% extends 'main.html' %}
 {% block content %}
 
-        <div class="site">
-            <header class="site__header">
-                <div class="site__header__wrapper">
-                    <a class="site__header__wrapper_content" href="{% url 'index' %}">Главная</a>
-                    <a class="site__header__wrapper_content" href="{% url 'logout' %}">Sign out</a>
-                </div>
-            </header>
-            <div class="site__body">
-                <div class="site__body__info">
-                    <div class="site__body__info-left">
-                        <div class="site__body__info_picture">
-                            <img class="" scr = "{{ profile.profile_image }}" alt=""/>
-                        </div>
-                    </div>
-                    <div class="site__body__info-right">
-                        <div class="site__body__info_name">
-                           {{ profile.name }}
-                        </div>
-                        <div class="site__body__info_username">
-                            {{ profile.username }}
-                        </div>
-                        <div class="site__body__info__stats">
+    <div class="site">
+        <header class="site__header">
+            <div class="site__header__wrapper">
+                <a class="site__header__wrapper_content" href="#">INDEX</a>
 
-                        </div>
-                    </div>
-                </div>
-                <div class="site__body__graphql">
-                    <div class="site__body__graphql_item"></div>
-                    <div class="site__body__graphql_item"></div>
-                    <div class="site__body__graphql_item"></div>
-                    <div class="site__body__graphql_item"></div>
-                    <div class="site__body__graphql_item"></div>
-                    <div class="site__body__graphql_item"></div>
-                    <div class="site__body__graphql_item"></div>
-                    <div class="site__body__graphql_item"></div>
-                </div>
-                <div class="site__body__integrations">
-                    <a class="site__body__signbox__form_a" href="#">integration settings</a>
+                <div>
+                    {% if request.user.is_authenticated %}
+                        <button class="site__header__wrapper_content" id="usernameBtn" type="button" name="button">{{ profile.username }}</button>
+                        <button class="site__header__wrapper_content hidden" id="settingsBtn" type="button" name="button">SETTINGS</button>
+                        <a class="site__header__wrapper_content hidden" id="signoutBtn" href="{% url 'logout' %}">SIGN OUT</a>
+
+                    {% else %}
+
+                        <a class="site__header__wrapper_content hidden" id="signoutBtn" href="{% url 'login' %}">SIGN IN</a>
+                    {% endif %}
                 </div>
             </div>
-            <footer class="site__footer">
-                <div class="site__footer__wrapper">
-                    <a class="site__footer__wrapper_content" href="#">INDEX</a>
-                    <a class="site__footer__wrapper_content" href="althome.html">HOME</a>
-                    <div class="site__footer__wrapper_content"><b>FOOTER</b></div>
-                    <a class="site__footer__wrapper_content" href="../../../templates/signin.html">SIGN IN</a>
-                    <a class="site__footer__wrapper_content" href="../../../templates/signup.html">SIGN UP</a>
+        </header>
+        <div class="site__body">
+            <div class="site__body__info">
+                <div class="site__body__info-left">
+                    <div class="site__body__info_picture">
+                        <img class="" scr = "{{ profile.profile_image }}" alt=""/>
+                    </div>
                 </div>
-            </footer>
+                <div class="site__body__info-right">
+                    <div class="site__body__info_name">
+                        {{ profile.name }}
+                    </div>
+                    <div class="site__body__info_username">
+                        {{ profile.username }}
+                    </div>
+                    <div class="site__body__info__stats">
+
+                    </div>
+                </div>
+            </div>
+            <div class="site__body__settings" id="settingsContainer">
+                <div class="site__body__settings__container">
+                    <div class="site__body__settings_heading">
+                        Profile settings
+                    </div>
+
+                    <div class="site__body__settings_profile-section">
+                        <form class="form" method="POST" action="{% url 'account' %}" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <div class="form__field">
+                                {% for field in form %}
+                                    {{ field }}
+                                {% endfor %}
+                            </div>
+                            <input class="site__body__signbox__form_a" style="color: black; padding-right: 22px" type="submit" value="submit"/>
+                        </form>
+                    </div>
+
+                    {#                        <div class="site__body__settings_profile-section">#}
+                    {#                            name:#}
+                    {#                            <input style="margin-left: 10px;" type="text" name="username" value="">#}
+                    {#                            <input class="site__body__signbox__form_a" style="color: black; padding-top: 10px" type="submit" value="SAVE"/>#}
+                    {#                        </div>#}
+                    {#                        <div class="site__body__settings_profile-section">#}
+                    {#                            profile picture:#}
+                    {#                            <input style="display: none;" id="file-input"type="file" name="profile_image" value="">#}
+                    {#                            <label style="margin-left: 10px; cursor: pointer; font-size: 22px; font-weight:400;" for="file-input">CHOOSE FILE</label>#}
+                    {#                            <button class="site__body__signbox__form_a" style="margin-left: 10px;" type="button" name="button">SAVE</button>#}
+                    {#                        </div>#}
+
+
+                </div>
+                <div class="site__body__settings__container">
+                    <div class="site__body__settings_heading">
+                        Security settings
+                    </div>
+                </div>
+                <div class="site__body__settings__container">
+                    <div class="site__body__settings_heading">
+                        Integrations
+                    </div>
+                    <div class="site__body__integrations">
+                        <a class="site__body__signbox__form_a" href="#">settings</a>
+                    </div>
+                </div>
+            </div>
+            <div class="site__body__graphql">
+                <div class="site__body__graphql_item"></div>
+                <div class="site__body__graphql_item"></div>
+                <div class="site__body__graphql_item"></div>
+                <div class="site__body__graphql_item"></div>
+                <div class="site__body__graphql_item"></div>
+                <div class="site__body__graphql_item"></div>
+                <div class="site__body__graphql_item"></div>
+                <div class="site__body__graphql_item"></div>
+            </div>
         </div>
+        <footer class="site__footer">
+            <div class="site__footer__wrapper">
+                <a class="site__footer__wrapper_content" href="#">INDEX</a>
+                <a class="site__footer__wrapper_content" href="althome.html">HOME</a>
+                <div class="site__footer__wrapper_content"><b>FOOTER</b></div>
+                <a class="site__footer__wrapper_content" href="../../../templates/signin.html">SIGN IN</a>
+                <a class="site__footer__wrapper_content" href="../../../templates/signup.html">SIGN UP</a>
+            </div>
+        </footer>
+    </div>
+    <script type="text/javascript">
+
+        const settingsBtnNode = document.getElementById('settingsBtn');
+        const settingsContainerNode = document.getElementById('settingsContainer');
+
+        settingsContainerNode.style.maxHeight = '0px';
+
+        settingsBtnNode.addEventListener('click', () => {
+            settingsBtnNode.classList.toggle('btnActive');
+            if (settingsContainerNode.style.maxHeight == '0px') {
+                settingsContainerNode.style.maxHeight = settingsContainerNode.scrollHeight + 'px';
+            } else {
+                settingsContainerNode.style.maxHeight = '0px';
+            }
+        });
+
+
+        const usernameBtnNode = document.getElementById('usernameBtn');
+        const signoutBtnNode = document.getElementById('signoutBtn');
+
+        usernameBtnNode.addEventListener('click', () => {
+            if (settingsBtnNode.classList.contains('btnActive')) {
+                settingsBtnNode.classList.toggle('btnActive');
+                settingsContainerNode.style.maxHeight = '0px';
+            }
+            usernameBtnNode.classList.toggle('btnActive');
+            settingsBtnNode.classList.toggle('hidden');
+            signoutBtnNode.classList.toggle('hidden');
+
+            usernameBtnNode.animate([
+                {opacity: '0'},
+                {opacity: '0.15'},
+                {opacity: '0'},
+                {opacity: '0.3'},
+                {opacity: '0'},
+                {opacity: '1'},
+            ], 300);
+        });
+
+    </script>
 {% endblock content %}

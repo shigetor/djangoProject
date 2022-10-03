@@ -1,7 +1,7 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
-from .forms import CustomUserCreationForm
+from .forms import CustomUserCreationForm, ProfileForm
 from django.contrib.auth import login, authenticate, logout
 from django.contrib import messages
 
@@ -74,4 +74,23 @@ def userAccount(request):
 
 
 def homePage(request):
-    return render(request, 'users/althome.html')
+    profile = request.user.profile
+    context = {'profile': profile}
+    return render(request, 'users/althome.html',context)
+
+
+@login_required(login_url='login')
+def editSettings(request):
+    profile = request.user.profile
+    form = ProfileForm(instance=profile)
+
+    if request.method == 'POST':
+        form = ProfileForm(request.POST, request.FILES, instance=profile)
+        if form.is_valid():
+            form.save()
+
+            return redirect('account')
+
+    context = {'form': form}
+    return render(request, 'users/editSettings.html', {'form': form})
+
