@@ -73,10 +73,11 @@ def userAccount(request):
     return render(request, 'users/althome.html', context)
 
 
+@login_required(login_url='login')
 def homePage(request):
     profile = request.user.profile
     context = {'profile': profile}
-    return render(request, 'users/althome.html',context)
+    return render(request, 'users/althome.html', context)
 
 
 @login_required(login_url='login')
@@ -93,4 +94,3 @@ def editSettings(request):
 
     context = {'form': form}
     return render(request, 'users/editSettings.html', {'form': form})
-

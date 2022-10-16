@@ -4,9 +4,13 @@
     <div class="site__body__settings_profile-section">
         <form class="form" method="POST" action="{% url 'edit-account' %}" enctype="multipart/form-data">
             {% csrf_token %}
-                <div class="form__field">
-                    {{ form.name }}
-                </div>
+            <div class="form__field">
+
+                {% for field in form %}
+                    {{ field }}
+
+                {% endfor %}
+            </div>
             <input class="site__body__signbox__form_a" style="color: black; padding-right: 22px" type="submit" value="submit"/>
         </form>
     </div>

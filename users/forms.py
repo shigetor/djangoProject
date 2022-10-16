@@ -31,10 +31,11 @@ class ProfileForm(forms.ModelForm):
 
     class Meta:
         model = Profile
-        fields = ['name', 'profile_image']
+        fields = ['name', 'profile_image', 'profile_image_border']
         labels = {
             'name': 'Имя',
             'profile_image': 'Аватарка',
+            'profile_image_border': 'Задняя аватарка'
         }
 
     def __init__(self, *args, **kwargs):

@@ -13,7 +13,6 @@
                         <a class="site__header__wrapper_content hidden" id="signoutBtn" href="{% url 'logout' %}">SIGN OUT</a>
 
                     {% else %}
-
                         <a class="site__header__wrapper_content hidden" id="signoutBtn" href="{% url 'login' %}">SIGN IN</a>
                     {% endif %}
                 </div>
@@ -21,9 +20,13 @@
         </header>
         <div class="site__body">
             <div class="site__body__info">
+                <div class="site__body__info__cover">
+                    <img class="cover" src="{{ profile.imageURL_border }}" alt="cvr">
+                </div>
+                <div class="site__body__info__cover-tinted"></div>
                 <div class="site__body__info-left">
                     <div class="site__body__info_picture">
-                        <img class="" scr = "{{ profile.profile_image }}" alt=""/>
+                        <img class="image" src="{{ profile.imageURL }}"/>
                     </div>
                 </div>
                 <div class="site__body__info-right">

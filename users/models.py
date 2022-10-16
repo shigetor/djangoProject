@@ -11,6 +11,8 @@ class Profile(models.Model):
     username = models.CharField(max_length=200, blank=True, null=True, verbose_name='Имя на сайте')
     profile_image = models.ImageField(
         null=True, blank=True, upload_to='profiles/', default="profiles/user-default.png")
+    profile_image_border = models.ImageField(null=True, blank=True, upload_to='profiles/', default="profile/border/user"
+                                                                                                   "-default.png")
     name = models.CharField(max_length=200, blank=True, null=True, verbose_name='Имя')
     secondName = models.CharField(max_length=200, blank=True, null=True, verbose_name='Фамилия')
     lastName = models.CharField(max_length=200, blank=True, null=True, verbose_name='Отчество')
@@ -33,3 +35,19 @@ class Profile(models.Model):
         verbose_name = 'Пользователь'
         verbose_name_plural = ' Пользователи'
         ordering = ['is_created']
+
+    @property
+    def imageURL(self):
+        try:
+            url = self.profile_image.url
+        except:
+            url = ''
+        return url
+
+    @property
+    def imageURL_border(self):
+        try:
+            url = self.profile_image_border.url
+        except:
+            url = ''
+        return url
