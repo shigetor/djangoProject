@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ru" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>settings</title>
+        <link rel="stylesheet" href="../static/css/master.css">
+        <meta name="viewport" content="width=device-width">
+    </head>
+    <body>
+        <div class="site">
+            <header class="site__header">
+                <div class="site__header__wrapper">
+                    <a class="site__header__wrapper_content text-CD" href="#">LESSPROFILES</a>
+                    <div>
+                        <button class="site__header__wrapper_content btnActive" id="usernameBtn" type="button" name="button">USERNAME</button>
+                        <a class="site__header__wrapper_content btnActive" id="settingsBtn" href="althome.html">SETTINGS</a>
+                        <a class="site__header__wrapper_content " id="signoutBtn" href="signin.html">SIGN OUT</a>
+                    </div>
+                </div>
+            </header>
+            <div class="site__body">
+                <div class="site__body__info">
+                    <div class="site__body__info__cover">
+                        <img class="cover" src="" alt="cvr">
+                    </div>
+                    <div class="site__body__info__cover-tinted"></div>
+                    <div class="site__body__info-left">
+                        <div class="site__body__info_picture">
+                            <img class="image" src="" alt="img">
+                        </div>
+                    </div>
+                    <div class="site__body__info-right">
+                        <div class="site__body__info_name">
+                            NAME
+                        </div>
+                        <div class="site__body__info_username">
+                            username
+                        </div>
+                        <div class="site__body__info__stats">
+
+                        </div>
+                    </div>
+                </div>
+                <div class="site__body__settings" id="settingsContainer">
+                    <div class="site__body__settings__container">
+                        <div class="site__body__settings_heading">
+                            Profile settings
+                        </div>
+                        <div class="site__body__settings_profile-section">
+                            <div style="margin-bottom: 5px;">name:</div>
+                            <input style="margin-top: 5px;" type="text" name="" value="">
+                            <button class="site__body__signbox__form_a" style="margin-left: 10px;" type="button" name="button">SAVE</button>
+                        </div>
+                        <div class="site__body__settings_profile-section">
+                            <div style="margin-bottom: 5px;">profile picture:</div>
+                            <input style="display: none;" id="file-input-picture" type="file" name="" value="">
+                            <label style="cursor: pointer; font-size: 22px; font-weight:400;" for="file-input-picture">CHOOSE FILE</label>
+                            <button class="site__body__signbox__form_a" style="margin-left: 10px;" type="button" name="button">SAVE</button>
+                        </div>
+                        <div class="site__body__settings_profile-section">
+                            <div style="margin-bottom: 5px;">cover picture:</div>
+                            <input style="display: none;" id="file-input-cover" type="file" name="" value="">
+                            <label style="cursor: pointer; font-size: 22px; font-weight:400;" for="file-input-cover">CHOOSE FILE</label>
+                            <button class="site__body__signbox__form_a" style="margin-left: 10px;" type="button" name="button">SAVE</button>
+                        </div>
+                    </div>
+                    <div class="site__body__settings__container">
+                        <div class="site__body__settings_heading">
+                            Security settings
+                        </div>
+                        <div class="site__body__integrations">
+                            <a class="site__body__signbox__form_a" href="#">settings</a>
+                        </div>
+                    </div>
+                    <div class="site__body__settings__container">
+                        <div class="site__body__settings_heading">
+                            Integrations
+                        </div>
+                        <div class="site__body__integrations">
+                            <a class="site__body__signbox__form_a" href="#">settings</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <a style="margin: 30px auto;" class="site__body__signbox__form_a" href="althome.html">home</a>
+
+            <footer class="site__footer">
+                <div class="site__footer__wrapper">
+                    <a class="site__footer__wrapper_content" href="#">INDEX</a>
+                    <a class="site__footer__wrapper_content" href="althome.html">HOME</a>
+                    <div class="site__footer__wrapper_content"><b>FOOTER</b></div>
+                    <a class="site__footer__wrapper_content" href="signin.html">SIGN IN</a>
+                    <a class="site__footer__wrapper_content" href="signup.html">SIGN UP</a>
+                </div>
+            </footer>
+        </div>
+        <script type="text/javascript">
+
+            const settingsBtnNode = document.getElementById('settingsBtn');
+            const settingsContainerNode = document.getElementById('settingsContainer');
+
+            settingsBtnNode.addEventListener('click', () => {
+                settingsBtnNode.classList.toggle('btnActive');
+            });
+
+            const usernameBtnNode = document.getElementById('usernameBtn');
+            const signoutBtnNode = document.getElementById('signoutBtn');
+
+            usernameBtnNode.addEventListener('click', () => {
+                usernameBtnNode.classList.toggle('btnActive');
+                settingsBtnNode.classList.toggle('hidden');
+                signoutBtnNode.classList.toggle('hidden');
+
+                usernameBtnNode.animate([
+                    {opacity: '0'},
+                    {opacity: '0.15'},
+                    {opacity: '0'},
+                    {opacity: '0.3'},
+                    {opacity: '0'},
+                    {opacity: '1'},
+                ], 300);
+            });
+
+        </script>
+    </body>
+</html>
