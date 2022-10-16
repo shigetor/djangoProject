@@ -30,6 +30,19 @@ h3{
     text-transform: uppercase;
     font-family: sans-serif;
 }
+input{
+     display: block;
+     margin-top: 3px;
+     margin-bottom: 30px;
+     padding: 15px;
+     padding-left: 22px;
+     font-size: 20px;
+     border-radius: 50px;
+     background-color: rgb(17, 17, 19);
+     transition-timing-function: ease-in-out;
+     transition-duration: 200ms;
+     width: 100%;
+ }
 
 .site{
     display: flex;
