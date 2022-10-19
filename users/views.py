@@ -82,15 +82,16 @@ def homePage(request):
 
 @login_required(login_url='login')
 def editSettings(request):
+
     profile = request.user.profile
     form = ProfileForm(instance=profile)
 
     if request.method == 'POST':
         form = ProfileForm(request.POST, request.FILES, instance=profile)
         if form.is_valid():
-            form.save()
-
+            settings = form.save(commit=False)
+            settings.save()
             return redirect('account')
 
-    context = {'form': form}
-    return render(request, 'users/editSettings.html', {'form': form})
+    context = {'form': form, 'profile':profile}
+    return render(request, 'users/editSettings.html', context)

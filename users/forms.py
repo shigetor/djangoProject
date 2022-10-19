@@ -28,6 +28,8 @@ class CustomUserCreationForm(UserCreationForm):
 
 
 class ProfileForm(forms.ModelForm):
+    profile_image = forms.ImageField(label='Аватарка страницы', required=False, widget=forms.FileInput)
+    profile_image_border = forms.ImageField(label='Фон аватарки', required=False, widget=forms.FileInput)
 
     class Meta:
         model = Profile
@@ -43,4 +45,3 @@ class ProfileForm(forms.ModelForm):
 
         for name, field in self.fields.items():
             field.widget.attrs.update({'class': 'input'})
-

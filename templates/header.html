@@ -1,11 +1,10 @@
 <header class="site__header">
     <div class="site__header__wrapper">
-        <a class="site__header__wrapper_content" href="#">INDEX</a>
-
+        <a class="site__header__wrapper_content text-CD" href="#">LESSPROFILES</a>
         <div>
             {% if request.user.is_authenticated %}
                 <button class="site__header__wrapper_content" id="usernameBtn" type="button" name="button">{{ profile.username }}</button>
-                <button class="site__header__wrapper_content hidden" id="settingsBtn" type="button" name="button">SETTINGS</button>
+                <a class="site__header__wrapper_content btnActive" id="settingsBtn" href="{% url 'edit-account' %}">SETTINGS</a>
                 <a class="site__header__wrapper_content hidden" id="signoutBtn" href="{% url 'logout' %}">SIGN OUT</a>
             {% else %}
                 <a class="site__header__wrapper_content hidden" id="signoutBtn" href="{% url 'login' %}">SIGN IN</a>
