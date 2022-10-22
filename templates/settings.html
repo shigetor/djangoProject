@@ -47,9 +47,10 @@
                             Profile settings
                         </div>
                         <div class="site__body__settings_profile-section">
-                            <div style="margin-bottom: 5px;">name:</div>
-                            <input style="margin-top: 5px;" type="text" name="" value="">
-                            <button class="site__body__signbox__form_a" style="margin-left: 10px;" type="button" name="button">SAVE</button>
+                            <div style="margin-bottom: 5px;">name:
+                                <input style="margin-top: 5px;" type="text" name="" value="">
+                                <button class="site__body__signbox__form_a" style="margin-left: 10px;" type="button" name="button">SAVE</button>
+                            </div>
                         </div>
                         <div class="site__body__settings_profile-section">
                             <div style="margin-bottom: 5px;">profile picture:</div>
@@ -81,8 +82,10 @@
                         </div>
                     </div>
                 </div>
+                <div style="margin: 30px 0;" class="site__body__signbox__form_a">
+                    <a style="opacity: 0; animation-fill-mode: forwards; animation-name: fadein; animation-duration: 1000ms;" class="site__body__signbox__form_a" href="althome.html">home</a>
+                </div>
             </div>
-            <a style="margin: 30px auto;" class="site__body__signbox__form_a" href="althome.html">home</a>
 
             <footer class="site__footer">
                 <div class="site__footer__wrapper">
@@ -107,18 +110,15 @@
             const signoutBtnNode = document.getElementById('signoutBtn');
 
             usernameBtnNode.addEventListener('click', () => {
+
                 usernameBtnNode.classList.toggle('btnActive');
                 settingsBtnNode.classList.toggle('hidden');
                 signoutBtnNode.classList.toggle('hidden');
 
                 usernameBtnNode.animate([
                     {opacity: '0'},
-                    {opacity: '0.15'},
-                    {opacity: '0'},
-                    {opacity: '0.3'},
-                    {opacity: '0'},
                     {opacity: '1'},
-                ], 300);
+                ], 500);
             });
 
         </script>
