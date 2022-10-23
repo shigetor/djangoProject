@@ -8,7 +8,7 @@
     </head>
     <body>
         <div class="site">
-            <header class="site__header">
+            <header id="header" class="site__header">
                 <div class="site__header__wrapper">
                     <a class="site__header__wrapper_content text-CD" href="#">LESSPROFILES</a>
                     <div>
@@ -50,19 +50,27 @@
                     <div class="site__body__graphql_item"></div>
                     <div class="site__body__graphql_item"></div>
                     <div class="site__body__graphql_item"></div>
+                    <div class="site__body__graphql_item"></div>
                 </div>
             </div>
             <footer class="site__footer">
                 <div class="site__footer__wrapper">
                     <a class="site__footer__wrapper_content" href="#">INDEX</a>
                     <a class="site__footer__wrapper_content" href="althome.html">HOME</a>
-                    <div class="site__footer__wrapper_content"><b>FOOTER</b></div>
+                    <a class="site__footer__wrapper_content" href="settings.html">SETTINGS</a>
                     <a class="site__footer__wrapper_content" href="signin.html">SIGN IN</a>
                     <a class="site__footer__wrapper_content" href="signup.html">SIGN UP</a>
                 </div>
             </footer>
         </div>
         <script type="text/javascript">
+
+            const headerNode = document.getElementById('header');
+
+            window.addEventListener('scroll', () => {
+                headerNode.classList.toggle('opacity0', window.scrollY <= 380 && window.scrollY > 0 );
+                headerNode.classList.toggle('site__header-bg', window.scrollY >= 380);
+            });
 
             const settingsBtnNode = document.getElementById('settingsBtn');
 
