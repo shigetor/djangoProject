@@ -25,11 +25,11 @@
         }
         </style>
     </head>
-    <body class="bg-white dark:bg-black bg-fixed min-h-screen flex flex-col text-black dark:text-white text-font-main font-light">
+    <body class="transition bg-white dark:bg-black bg-fixed min-h-screen flex flex-col text-black dark:text-white text-font-main font-light">
 
         <header class="transition w-screen fixed flex flex-col z-50" id="header">
             <div class="container mx-auto h-12 flex justify-between items-center">
-                <a class="text-CD" href="#">LESSPROFILES</a>
+                <a id="darkmodeBtn" class="text-CD" href="#">LESSPROFILES</a>
                 <div class="space-x-1">
                     <button class="transition-all" id="usernameBtn" type="button" name="button">USERNAME</button>
                     <a class="transition-all hidden" id="settingsBtn" href="#">SETTINGS</a>
@@ -41,7 +41,8 @@
         <div class="pt-12 flex flex-col flex-auto">
 
             <div class="relative w-full h-80">
-                <img class="-z-10 absolute h-full w-full object-cover dark:brightness-50" src="" alt="">
+                <!-- <img class="-z-10 absolute h-full w-full object-cover dark:brightness-50" src="" alt=""> -->
+                <div class="-z-10 absolute h-full w-full bg-gradient-to-r from-indigo-200 dark:from-indigo-900/30 via-fuchsia-200 dark:via-purple-900/50 to-sky-200 dark:to-violet-900/30 blur-3xl dark:brightness-50"></div>
                 <div class="h-full w-full container mx-auto flex">
                     <div class="aspect-square shrink-0 grow-0 rounded-full overflow-hidden scale-[1.15] ml-20">
                         <img class="h-full w-full object-cover" src="" alt="">
@@ -109,6 +110,12 @@
                     {opacity: '0.15'},
                     {opacity: '1'},
                 ], 300);
+            });
+
+            const darkmodeBtnNode = document.getElementById('darkmodeBtn');
+
+            darkmodeBtnNode.addEventListener('click', () => {
+                document.documentElement.classList.toggle('dark');
             });
 
         </script>
