@@ -1,9 +1,14 @@
 <!DOCTYPE html>
-<html lang="ru" dir="ltr">
+<html lang="ru" dir="ltr" class="">
     <head>
         <meta charset="utf-8">
         <title>home</title>
         <script src="https://cdn.tailwindcss.com"></script>
+        <script>
+            tailwind.config = {
+                darkMode: 'class'
+            }
+        </script>
         <style>
         @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400&display=swap');
         @import url('https://fonts.googleapis.com/css2?family=Cinzel&family=Cinzel+Decorative&display=swap');
@@ -20,12 +25,12 @@
         }
         </style>
     </head>
-    <body class="bg-black bg-fixed min-h-screen flex flex-col text-white text-font-main font-light">
+    <body class="bg-white dark:bg-black bg-fixed min-h-screen flex flex-col text-black dark:text-white text-font-main font-light">
 
-        <header class="transition w-screen fixed flex flex-col" id="header">
+        <header class="transition w-screen fixed flex flex-col z-50" id="header">
             <div class="container mx-auto h-12 flex justify-between items-center">
                 <a class="text-CD" href="#">LESSPROFILES</a>
-                <div>
+                <div class="space-x-1">
                     <button class="transition-all" id="usernameBtn" type="button" name="button">USERNAME</button>
                     <a class="transition-all hidden" id="settingsBtn" href="#">SETTINGS</a>
                     <a class="transition-all hidden" id="signoutBtn" href="signin.html">SIGN OUT</a>
@@ -36,9 +41,9 @@
         <div class="pt-12 flex flex-col flex-auto">
 
             <div class="relative w-full h-80">
-                <img class="-z-10 absolute h-full w-full object-cover brightness-50" src="" alt="">
+                <img class="-z-10 absolute h-full w-full object-cover dark:brightness-50" src="" alt="">
                 <div class="h-full w-full container mx-auto flex">
-                    <div class="aspect-square rounded-full overflow-hidden scale-[1.15] ml-20">
+                    <div class="aspect-square shrink-0 grow-0 rounded-full overflow-hidden scale-[1.15] ml-20">
                         <img class="h-full w-full object-cover" src="" alt="">
                     </div>
                     <div class="self-center ml-16 flex flex-col">
@@ -52,13 +57,20 @@
                 </div>
             </div>
 
-            <div class="">
-
+            <div class="container mx-auto p-6 flex flex-wrap justify-center">
+                <div class="m-4 w-[400px] h-[300px] rounded-xl overflow-hidden bg-zinc-100 dark:bg-zinc-900"></div>
+                <div class="m-4 w-[400px] h-[300px] rounded-xl overflow-hidden bg-zinc-100 dark:bg-zinc-900"></div>
+                <div class="m-4 w-[400px] h-[300px] rounded-xl overflow-hidden bg-zinc-100 dark:bg-zinc-900"></div>
+                <div class="m-4 w-[400px] h-[300px] rounded-xl overflow-hidden bg-zinc-100 dark:bg-zinc-900"></div>
+                <div class="m-4 w-[400px] h-[300px] rounded-xl overflow-hidden bg-zinc-100 dark:bg-zinc-900"></div>
+                <div class="m-4 w-[400px] h-[300px] rounded-xl overflow-hidden bg-zinc-100 dark:bg-zinc-900"></div>
+                <div class="m-4 w-[400px] h-[300px] rounded-xl overflow-hidden bg-zinc-100 dark:bg-zinc-900"></div>
+                <div class="m-4 w-[400px] h-[300px] rounded-xl overflow-hidden bg-zinc-100 dark:bg-zinc-900"></div>
             </div>
 
         </div>
 
-        <footer class="bg-black/70 backdrop-blur w-screen flex flex-col">
+        <footer class="bg-white/70 dark:bg-black/70 backdrop-blur w-screen flex flex-col">
             <div class="container mx-auto h-12 flex justify-between items-center">
                 <a href="#">FOOTER</a>
             </div>
@@ -70,14 +82,15 @@
 
             window.addEventListener('scroll', () => {
                 headerNode.classList.toggle('opacity-0', window.scrollY <= 368 && window.scrollY > 0 );
-                headerNode.classList.toggle('bg-black/70', window.scrollY >= 368);
+                headerNode.classList.toggle('dark:bg-black/70', window.scrollY >= 368);
+                headerNode.classList.toggle('bg-white/70', window.scrollY >= 368);
                 headerNode.classList.toggle('backdrop-blur', window.scrollY >= 368);
             });
 
             const settingsBtnNode = document.getElementById('settingsBtn');
 
             settingsBtnNode.addEventListener('click', () => {
-                settingsBtnNode.classList.toggle('text-red-600');
+                settingsBtnNode.classList.toggle('text-[#ff0000]');
                 settingsBtnNode.classList.toggle('text-2xl');
             });
 
@@ -86,7 +99,7 @@
 
             usernameBtnNode.addEventListener('click', () => {
 
-                usernameBtnNode.classList.toggle('text-red-600');
+                usernameBtnNode.classList.toggle('text-[#ff0000]');
                 usernameBtnNode.classList.toggle('text-2xl');
                 settingsBtnNode.classList.toggle('hidden');
                 signoutBtnNode.classList.toggle('hidden');
