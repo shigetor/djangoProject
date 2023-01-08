@@ -23,13 +23,24 @@
         .text-font-main{
             font-family: 'Rubik', sans-serif;
         }
+        .animation-hue-rotate{
+            animation: hue-rotate 60s linear infinite;
+        }
+        @keyframes hue-rotate {
+            from{
+                filter: hue-rotate(0deg);
+            }
+            to{
+                filter: hue-rotate(360deg);
+            }
+        }
         </style>
     </head>
     <body class="transition bg-white dark:bg-black bg-fixed min-h-screen flex flex-col text-black dark:text-white text-font-main font-light">
 
         <header class="transition w-screen fixed flex flex-col z-50" id="header">
             <div class="container mx-auto h-12 flex justify-between items-center">
-                <a id="darkmodeBtn" class="text-CD" href="#">LESSPROFILES</a>
+                <a id="darkmodeBtn" class="animation-hue-rotate text-CD bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 dark:from-indigo-400 to-rose-600 dark:to-rose-400" href="#">LESSPROFILES</a>
                 <div class="space-x-1">
                     <button class="transition-all" id="usernameBtn" type="button" name="button">USERNAME</button>
                     <a class="transition-all hidden" id="settingsBtn" href="#">SETTINGS</a>
@@ -42,7 +53,7 @@
 
             <div class="relative w-full h-80">
                 <!-- <img class="-z-10 absolute h-full w-full object-cover dark:brightness-50" src="" alt=""> -->
-                <div class="-z-10 absolute h-full w-full bg-gradient-to-r from-indigo-200 dark:from-indigo-900/30 via-fuchsia-200 dark:via-purple-900/50 to-sky-200 dark:to-violet-900/30 blur-3xl dark:brightness-50"></div>
+                <div class="-z-10 absolute h-full w-full blur-3xl"><div class="h-full w-full animation-hue-rotate bg-gradient-to-r from-indigo-200/20 dark:from-indigo-900/10 via-fuchsia-200/30 dark:via-purple-900/20 to-sky-200/20 dark:to-violet-900/10 brightness-50"></div></div>
                 <div class="h-full w-full container mx-auto flex">
                     <div class="aspect-square shrink-0 grow-0 rounded-full overflow-hidden scale-[1.15] ml-20">
                         <img class="h-full w-full object-cover" src="" alt="">
