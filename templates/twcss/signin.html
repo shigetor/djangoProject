@@ -14,15 +14,11 @@
         @import url('https://fonts.googleapis.com/css2?family=Cinzel&family=Cinzel+Decorative&display=swap');
         </style>
         <style type="text/tailwindcss" media="screen">
-        .text-C{
-            font-family: 'Cinzel', cursive;
-        }
-        .text-CD{
-            font-family: 'Cinzel Decorative', cursive;
-        }
-        .text-font-main{
-            font-family: 'Rubik', sans-serif;
-        }
+        .text-C { font-family: 'Cinzel', cursive; }
+        .text-CD { font-family: 'Cinzel Decorative', cursive; }
+        .text-font-main { font-family: 'Rubik', sans-serif; }
+        .animation-hue-rotate { animation: hue-rotate 60s linear infinite; }
+        @keyframes hue-rotate { from{filter: hue-rotate(0deg);} to{filter: hue-rotate(360deg);} }
         </style>
     </head>
     <body class="transition bg-white dark:bg-black bg-fixed min-h-screen flex flex-col text-black dark:text-white text-font-main font-light">
@@ -31,23 +27,37 @@
 
         <header class="bg-white/70 dark:bg-black/70 backdrop-blur w-screen fixed flex flex-col">
             <div class="container mx-auto h-12 flex justify-between items-center">
-                <a id="darkmodeBtn" class="text-CD" href="#">LESSPROFILES</a>
+                <a id="darkmodeBtn" class="animation-hue-rotate text-CD bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 dark:from-indigo-400 to-rose-600 dark:to-rose-400" href="#">LESSPROFILES</a>
                 <a href="home.html">HOME</a>
             </div>
         </header>
 
         <div class="py-12 flex flex-col flex-auto">
 
-            <div class="bg-white/50 dark:bg-black/50 backdrop-blur m-auto rounded-xl flex flex-col place-content-center place-items-center p-12">
+            <div id="signin" class="bg-white/50 dark:bg-black/50 backdrop-blur m-auto rounded-xl flex flex-col place-content-center place-items-center p-12">
                 <div class="text-5xl mb-10">SIGN IN</div>
                 <form class="flex flex-col place-content-center place-items-center space-y-4" action="home.html" method="POST">
                     <input class="transition-all p-2 pl-4 w-72 rounded-full bg-white/50 dark:bg-black/50" tabindex="1" type="text" name="username" value="" placeholder="username">
                     <input class="transition-all p-2 pl-4 w-72 rounded-full bg-white/50 dark:bg-black/50" tabindex="2" type="password" name="password" value="" placeholder="password">
                     <div class="flex w-full justify-between items-center">
-                        <input class="transition-all p-2 w-full rounded-full text-neutral-700 dark:text-neutral-200 hover:text-black dark:hover:text-white bg-white/50 dark:bg-black/50" tabindex="3" type="submit" name="button" value="SIGN IN">
-                        <a class="transition-all shrink-0 p-2 rounded-full text-neutral-700 dark:text-neutral-200 hover:text-black dark:hover:text-white" tabindex="4" href="signup.html">create account</a>
+                        <input class="cursor-pointer transition-all p-2 w-full rounded-full text-neutral-700 dark:text-neutral-200 hover:text-black dark:hover:text-white bg-white/50 dark:bg-black/50" tabindex="3" type="submit" name="button" value="SIGN IN">
                     </div>
                 </form>
+                <button id="createaccountBtn" class="transition-all shrink-0 p-2 rounded-full text-neutral-700 dark:text-neutral-200 hover:text-black dark:hover:text-white" tabindex="4">create account</button>
+            </div>
+
+            <div id="signup" class="bg-white/50 dark:bg-black/50 backdrop-blur m-auto rounded-xl flex flex-col place-content-center place-items-center p-12">
+                <div class="text-5xl mb-10">SIGN UP</div>
+                <form class="flex flex-col place-content-center place-items-center space-y-4" action="home.html" method="POST">
+                    <input class="transition-all p-2 pl-4 w-72 rounded-full bg-white/50 dark:bg-black/50" tabindex="1" type="text" name="username" value="" placeholder="username">
+                    <input class="transition-all p-2 pl-4 w-72 rounded-full bg-white/50 dark:bg-black/50" tabindex="2" type="text" name="email" value="" placeholder="email">
+                    <input class="transition-all p-2 pl-4 w-72 rounded-full bg-white/50 dark:bg-black/50" tabindex="3" type="password" name="password" value="" placeholder="password">
+                    <input class="transition-all p-2 pl-4 w-72 rounded-full bg-white/50 dark:bg-black/50" tabindex="4" type="password" name="password-repeat" value="" placeholder="repeat password">
+                    <div class="flex w-full justify-between items-center">
+                        <input class="cursor-pointer transition-all p-2 w-full rounded-full text-neutral-700 dark:text-neutral-200 hover:text-black dark:hover:text-white bg-white/50 dark:bg-black/50" tabindex="5" type="submit" name="button" value="SIGN UP">
+                    </div>
+                </form>
+                <button id="signininsteadBtn" class="transition-all shrink-0 p-2 rounded-full text-neutral-700 dark:text-neutral-200 hover:text-black dark:hover:text-white" tabindex="6">sign in instead</button>
             </div>
 
         </div>
@@ -64,6 +74,92 @@
 
         darkmodeBtnNode.addEventListener('click', () => {
             document.documentElement.classList.toggle('dark');
+        });
+
+        const signinDivNode = document.getElementById('signin');
+        const signupDivNode = document.getElementById('signup');
+        const createaccountBtnNode = document.getElementById('createaccountBtn');
+        const signininsteadBtnNode = document.getElementById('signininsteadBtn');
+
+        signupDivNode.classList.toggle('hidden');
+
+        createaccountBtnNode.addEventListener('click', () => {
+            signinDivNode.animate(
+                [
+                    {
+                        transform: 'translateX(0)',
+                        opacity: 1
+                    },
+                    {
+                        transform: 'translateX(-10px)',
+                        opacity: 0
+                    }
+                ],
+                {
+                    duration: 300,
+                    easing: "ease-in-out"
+                }
+            );
+            setTimeout(() => {
+                signinDivNode.classList.toggle('hidden');
+                signupDivNode.classList.toggle('hidden');
+                signupDivNode.animate(
+                    [
+                        {
+                            transform: 'translateX(10px)',
+                            opacity: 0
+                        },
+                        {
+                            transform: 'translateX(0)',
+                            opacity: 1
+                        }
+                    ],
+                    {
+                        duration: 300,
+                        easing: "ease-in-out"
+                    }
+                );
+            }, 300);
+
+        });
+
+        signininsteadBtnNode.addEventListener('click', () => {
+            signupDivNode.animate(
+                [
+                    {
+                        transform: 'translateX(0)',
+                        opacity: 1
+                    },
+                    {
+                        transform: 'translateX(10px)',
+                        opacity: 0
+                    }
+                ],
+                {
+                    duration: 300,
+                    easing: "ease-in-out"
+                }
+            );
+            setTimeout(() => {
+                signupDivNode.classList.toggle('hidden');
+                signinDivNode.classList.toggle('hidden');
+                signinDivNode.animate(
+                    [
+                        {
+                            transform: 'translateX(-10px)',
+                            opacity: 0
+                        },
+                        {
+                            transform: 'translateX(0)',
+                            opacity: 1
+                        }
+                    ],
+                    {
+                        duration: 300,
+                        easing: "ease-in-out"
+                    }
+                );
+            }, 300);
         });
 
         </script>
