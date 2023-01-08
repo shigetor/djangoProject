@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ru" dir="ltr" class="">
+    <head>
+        <meta charset="utf-8">
+        <title>home</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <script>
+            tailwind.config = {
+                darkMode: 'class'
+            }
+        </script>
+        <style>
+        @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel&family=Cinzel+Decorative&display=swap');
+        </style>
+        <style type="text/tailwindcss" media="screen">
+        .text-C{
+            font-family: 'Cinzel', cursive;
+        }
+        .text-CD{
+            font-family: 'Cinzel Decorative', cursive;
+        }
+        .text-font-main{
+            font-family: 'Rubik', sans-serif;
+        }
+        .animation-hue-rotate{
+            animation: hue-rotate 60s linear infinite;
+        }
+        @keyframes hue-rotate {
+            from{
+                filter: hue-rotate(0deg);
+            }
+            to{
+                filter: hue-rotate(360deg);
+            }
+        }
+        </style>
+    </head>
+    <body class="transition bg-white dark:bg-black bg-fixed min-h-screen flex flex-col text-black dark:text-white text-font-main font-light">
+
+        <header class="transition w-screen fixed flex flex-col z-50" id="header">
+            <div class="container mx-auto h-12 flex justify-between items-center">
+                <a id="darkmodeBtn" class="animation-hue-rotate text-CD bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 dark:from-indigo-400 to-rose-600 dark:to-rose-400" href="#">LESSPROFILES</a>
+                <div class="space-x-1">
+                    <button class="transition-all" id="usernameBtn" type="button" name="button">USERNAME</button>
+                    <a class="transition-all hidden" id="settingsBtn" href="#">SETTINGS</a>
+                    <a class="transition-all hidden" id="signoutBtn" href="signin.html">SIGN OUT</a>
+                </div>
+            </div>
+        </header>
+
+        <div class="pt-12 flex flex-col flex-auto">
+
+            <div class="relative w-full h-80">
+                <!-- <img class="-z-10 absolute h-full w-full object-cover dark:brightness-50" src="" alt=""> -->
+                <div class="-z-10 absolute h-full w-full blur-3xl"><div class="h-full w-full animation-hue-rotate bg-gradient-to-r from-indigo-200/20 dark:from-indigo-900/10 via-fuchsia-200/30 dark:via-purple-900/20 to-sky-200/20 dark:to-violet-900/10 brightness-50"></div></div>
+                <div class="h-full w-full container mx-auto flex">
+                    <div class="aspect-square shrink-0 grow-0 rounded-full overflow-hidden scale-[1.15] ml-20">
+                        <img class="h-full w-full object-cover" src="" alt="">
+                    </div>
+                    <div class="self-center ml-16 flex flex-col">
+                        <div class="text-2xl">
+                            NAME
+                        </div>
+                        <div class="">
+                            username
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container mx-auto p-6 flex flex-wrap justify-center">
+                <div class="m-4 w-[400px] h-[300px] rounded-xl overflow-hidden bg-zinc-100 dark:bg-zinc-900"></div>
+                <div class="m-4 w-[400px] h-[300px] rounded-xl overflow-hidden bg-zinc-100 dark:bg-zinc-900"></div>
+                <div class="m-4 w-[400px] h-[300px] rounded-xl overflow-hidden bg-zinc-100 dark:bg-zinc-900"></div>
+                <div class="m-4 w-[400px] h-[300px] rounded-xl overflow-hidden bg-zinc-100 dark:bg-zinc-900"></div>
+                <div class="m-4 w-[400px] h-[300px] rounded-xl overflow-hidden bg-zinc-100 dark:bg-zinc-900"></div>
+                <div class="m-4 w-[400px] h-[300px] rounded-xl overflow-hidden bg-zinc-100 dark:bg-zinc-900"></div>
+                <div class="m-4 w-[400px] h-[300px] rounded-xl overflow-hidden bg-zinc-100 dark:bg-zinc-900"></div>
+                <div class="m-4 w-[400px] h-[300px] rounded-xl overflow-hidden bg-zinc-100 dark:bg-zinc-900"></div>
+            </div>
+
+        </div>
+
+        <footer class="bg-white/70 dark:bg-black/70 backdrop-blur w-screen flex flex-col">
+            <div class="container mx-auto h-12 flex justify-between items-center">
+                <a href="#">FOOTER</a>
+            </div>
+        </footer>
+
+        <script type="text/javascript">
+
+            const headerNode = document.getElementById('header');
+
+            window.addEventListener('scroll', () => {
+                headerNode.classList.toggle('opacity-0', window.scrollY <= 368 && window.scrollY > 0 );
+                headerNode.classList.toggle('dark:bg-black/70', window.scrollY >= 368);
+                headerNode.classList.toggle('bg-white/70', window.scrollY >= 368);
+                headerNode.classList.toggle('backdrop-blur', window.scrollY >= 368);
+            });
+
+            const settingsBtnNode = document.getElementById('settingsBtn');
+
+            settingsBtnNode.addEventListener('click', () => {
+                settingsBtnNode.classList.toggle('text-[#ff0000]');
+                settingsBtnNode.classList.toggle('text-2xl');
+            });
+
+            const usernameBtnNode = document.getElementById('usernameBtn');
+            const signoutBtnNode = document.getElementById('signoutBtn');
+
+            usernameBtnNode.addEventListener('click', () => {
+
+                usernameBtnNode.classList.toggle('text-[#ff0000]');
+                usernameBtnNode.classList.toggle('text-2xl');
+                settingsBtnNode.classList.toggle('hidden');
+                signoutBtnNode.classList.toggle('hidden');
+
+                usernameBtnNode.animate([
+                    {opacity: '0'},
+                    {opacity: '0.15'},
+                    {opacity: '1'},
+                ], 300);
+            });
+
+            const darkmodeBtnNode = document.getElementById('darkmodeBtn');
+
+            darkmodeBtnNode.addEventListener('click', () => {
+                document.documentElement.classList.toggle('dark');
+            });
+
+        </script>
+
+    </body>
+</html>
