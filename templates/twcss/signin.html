@@ -4,11 +4,8 @@
         <meta charset="utf-8">
         <title>sign in</title>
         <script src="https://cdn.tailwindcss.com"></script>
-        <script>
-            tailwind.config = {
-                darkMode: 'class'
-            }
-        </script>
+        <script> tailwind.config = { darkMode: 'class' } </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" charset="utf-8"></script>
         <style>
         @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400&display=swap');
         @import url('https://fonts.googleapis.com/css2?family=Cinzel&family=Cinzel+Decorative&display=swap');
@@ -21,9 +18,10 @@
         @keyframes hue-rotate { from{filter: hue-rotate(0deg);} to{filter: hue-rotate(360deg);} }
         </style>
     </head>
-    <body class="transition bg-white dark:bg-black bg-fixed min-h-screen flex flex-col text-black dark:text-white text-font-main font-light">
+    <body class="overflow-hidden transition bg-white dark:bg-black bg-fixed min-h-screen flex flex-col text-black dark:text-white text-font-main font-light">
 
-        <!-- <img class="absolute h-full w-full object-cover" src="" alt=""> -->
+        <!-- <img id="bgImage" class="-z-10 absolute h-full w-full object-cover" src="" alt=""> -->
+        <div class="-z-10 opacity-90 absolute h-full w-full"><div class="h-full w-full animation-hue-rotate bg-gradient-to-r from-indigo-200/20 dark:from-indigo-900/10 via-fuchsia-200/30 dark:via-purple-900/20 to-sky-200/20 dark:to-violet-900/10"></div></div>
 
         <header class="bg-white/70 dark:bg-black/70 backdrop-blur w-screen fixed flex flex-col">
             <div class="container mx-auto h-12 flex justify-between items-center">
@@ -70,16 +68,19 @@
 
         <script type="text/javascript">
 
-        const darkmodeBtnNode = document.getElementById('darkmodeBtn');
-
-        darkmodeBtnNode.addEventListener('click', () => {
-            document.documentElement.classList.toggle('dark');
-        });
-
         const signinDivNode = document.getElementById('signin');
         const signupDivNode = document.getElementById('signup');
         const createaccountBtnNode = document.getElementById('createaccountBtn');
         const signininsteadBtnNode = document.getElementById('signininsteadBtn');
+        const darkmodeBtnNode = document.getElementById('darkmodeBtn');
+
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark')
+        } else {
+            document.documentElement.classList.remove('dark')
+        };
+
+        darkmodeBtnNode.addEventListener('dblclick', () => { document.documentElement.classList.toggle('dark'); });
 
         signupDivNode.classList.toggle('hidden');
 
@@ -120,7 +121,6 @@
                     }
                 );
             }, 300);
-
         });
 
         signininsteadBtnNode.addEventListener('click', () => {
@@ -160,6 +160,32 @@
                     }
                 );
             }, 300);
+        });
+
+        anime({
+            targets: 'header',
+            translateY: [-48, 0],
+            easing: 'easeInOutExpo',
+        });
+
+        anime({
+            targets: 'footer',
+            translateY: [48, 0],
+            easing: 'easeInOutExpo',
+        });
+
+        anime({
+            targets: '#bgImage',
+            opacity: [0, 1],
+            easing: 'easeInOutExpo',
+            duration: 500,
+        });
+
+        anime({
+            targets: ['#signin', '#signup'],
+            opacity: [0, 1],
+            easing: 'easeInOutExpo',
+            duration: 1000,
         });
 
         </script>
