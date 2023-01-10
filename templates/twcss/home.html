@@ -4,52 +4,39 @@
         <meta charset="utf-8">
         <title>home</title>
         <script src="https://cdn.tailwindcss.com"></script>
-        <script>
-            tailwind.config = {
-                darkMode: 'class'
-            }
-        </script>
+        <script> tailwind.config = { darkMode: 'class' } </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" charset="utf-8"></script>
         <style>
         @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400&display=swap');
         @import url('https://fonts.googleapis.com/css2?family=Cinzel&family=Cinzel+Decorative&display=swap');
         </style>
         <style type="text/tailwindcss" media="screen">
-        .text-C{
-            font-family: 'Cinzel', cursive;
-        }
-        .text-CD{
-            font-family: 'Cinzel Decorative', cursive;
-        }
-        .text-font-main{
-            font-family: 'Rubik', sans-serif;
-        }
-        .animation-hue-rotate{
-            animation: hue-rotate 60s linear infinite;
-        }
-        @keyframes hue-rotate {
-            from{
-                filter: hue-rotate(0deg);
-            }
-            to{
-                filter: hue-rotate(360deg);
-            }
-        }
+        .text-C { font-family: 'Cinzel', cursive; }
+        .text-CD { font-family: 'Cinzel Decorative', cursive; }
+        .text-font-main { font-family: 'Rubik', sans-serif; }
+        .animation-hue-rotate { animation: hue-rotate 60s linear infinite; }
+        @keyframes hue-rotate { from{filter: hue-rotate(0deg);} to{filter: hue-rotate(360deg);} }
         </style>
     </head>
     <body class="transition bg-white dark:bg-black bg-fixed min-h-screen flex flex-col text-black dark:text-white text-font-main font-light">
 
-        <header class="transition w-screen fixed flex flex-col z-50" id="header">
+        <header id="header" class="transition w-screen fixed flex flex-col z-50">
             <div class="container mx-auto h-12 flex justify-between items-center">
-                <a id="darkmodeBtn" class="animation-hue-rotate text-CD bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 dark:from-indigo-400 to-rose-600 dark:to-rose-400" href="#">LESSPROFILES</a>
+                <a id="logo" class="animation-hue-rotate text-CD bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 dark:from-indigo-400 to-rose-600 dark:to-rose-400" href="#">LESSPROFILES</a>
                 <div class="space-x-1">
                     <button class="transition-all" id="usernameBtn" type="button" name="button">USERNAME</button>
-                    <a class="transition-all hidden" id="settingsBtn" href="#">SETTINGS</a>
+                    <a class="transition-all hidden" id="settingsBtn" href="#">SETTINGS[PAGE]</a>
+                    <button class="transition-all hidden" id="settingsMenu" type="button" name="button">SETTINGS</button>
+                    <button class="transition-all hidden" id="themeBtn" type="button" name="button">THEME</button>
+                    <button class="transition-all hidden" id="themeAutoBtn" type="button" name="button">AUTO</button>
+                    <button class="transition-all hidden" id="themeLightBtn" type="button" name="button">LIGHT</button>
+                    <button class="transition-all hidden" id="themeDarkBtn" type="button" name="button">DARK</button>
                     <a class="transition-all hidden" id="signoutBtn" href="signin.html">SIGN OUT</a>
                 </div>
             </div>
         </header>
 
-        <div class="pt-12 flex flex-col flex-auto">
+        <div id="mainDiv" class="pt-12 flex flex-col flex-auto">
 
             <div class="relative w-full h-80">
                 <!-- <img class="-z-10 absolute h-full w-full object-cover dark:brightness-50" src="" alt=""> -->
@@ -70,14 +57,15 @@
             </div>
 
             <div class="container mx-auto p-6 flex flex-wrap justify-center">
-                <div class="m-4 w-[400px] h-[300px] rounded-xl overflow-hidden bg-zinc-100 dark:bg-zinc-900"></div>
-                <div class="m-4 w-[400px] h-[300px] rounded-xl overflow-hidden bg-zinc-100 dark:bg-zinc-900"></div>
-                <div class="m-4 w-[400px] h-[300px] rounded-xl overflow-hidden bg-zinc-100 dark:bg-zinc-900"></div>
-                <div class="m-4 w-[400px] h-[300px] rounded-xl overflow-hidden bg-zinc-100 dark:bg-zinc-900"></div>
-                <div class="m-4 w-[400px] h-[300px] rounded-xl overflow-hidden bg-zinc-100 dark:bg-zinc-900"></div>
-                <div class="m-4 w-[400px] h-[300px] rounded-xl overflow-hidden bg-zinc-100 dark:bg-zinc-900"></div>
-                <div class="m-4 w-[400px] h-[300px] rounded-xl overflow-hidden bg-zinc-100 dark:bg-zinc-900"></div>
-                <div class="m-4 w-[400px] h-[300px] rounded-xl overflow-hidden bg-zinc-100 dark:bg-zinc-900"></div>
+                <div class="animate-pulse m-4 w-[400px] h-[300px] rounded-xl overflow-hidden bg-zinc-100/60 dark:bg-zinc-900/30"></div>
+                <div class="animate-pulse m-4 w-[400px] h-[300px] rounded-xl overflow-hidden bg-zinc-100/60 dark:bg-zinc-900/30"></div>
+                <div class="animate-pulse m-4 w-[400px] h-[300px] rounded-xl overflow-hidden bg-zinc-100/60 dark:bg-zinc-900/30"></div>
+                <div class="animate-pulse m-4 w-[400px] h-[300px] rounded-xl overflow-hidden bg-zinc-100/60 dark:bg-zinc-900/30"></div>
+                <div class="animate-pulse m-4 w-[400px] h-[300px] rounded-xl overflow-hidden bg-zinc-100/60 dark:bg-zinc-900/30"></div>
+                <div class="animate-pulse m-4 w-[400px] h-[300px] rounded-xl overflow-hidden bg-zinc-100/60 dark:bg-zinc-900/30"></div>
+                <div class="animate-pulse m-4 w-[400px] h-[300px] rounded-xl overflow-hidden bg-zinc-100/60 dark:bg-zinc-900/30"></div>
+                <div class="animate-pulse m-4 w-[400px] h-[300px] rounded-xl overflow-hidden bg-zinc-100/60 dark:bg-zinc-900/30"></div>
+                <div class="animate-pulse m-4 w-[400px] h-[300px] rounded-xl overflow-hidden bg-zinc-100/60 dark:bg-zinc-900/30"></div>
             </div>
 
         </div>
@@ -90,44 +78,172 @@
 
         <script type="text/javascript">
 
-            const headerNode = document.getElementById('header');
+        const headerNode = document.getElementById('header');
+        const usernameBtnNode = document.getElementById('usernameBtn');
+        const signoutBtnNode = document.getElementById('signoutBtn');
+        const settingsMenuNode = document.getElementById('settingsMenu');
+        const themeBtnNode = document.getElementById('themeBtn');
+        const themeAutoBtnNode = document.getElementById('themeAutoBtn');
+        const themeLightBtnNode = document.getElementById('themeLightBtn');
+        const themeDarkBtnNode = document.getElementById('themeDarkBtn');
+        const settingsBtnNode = document.getElementById('settingsBtn');
+        const logoNode = document.getElementById('logo')
 
-            window.addEventListener('scroll', () => {
-                headerNode.classList.toggle('opacity-0', window.scrollY <= 368 && window.scrollY > 0 );
-                headerNode.classList.toggle('dark:bg-black/70', window.scrollY >= 368);
-                headerNode.classList.toggle('bg-white/70', window.scrollY >= 368);
-                headerNode.classList.toggle('backdrop-blur', window.scrollY >= 368);
-            });
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark')
+        } else {
+            document.documentElement.classList.remove('dark')
+        };
 
-            const settingsBtnNode = document.getElementById('settingsBtn');
+        if (!localStorage.theme) {
+            themeAutoBtnNode.classList.add('text-[#ff0000]');
+            themeAutoBtnNode.classList.add('text-2xl');
+        } else if (localStorage.theme === 'light') {
+            themeLightBtnNode.classList.add('text-[#ff0000]');
+            themeLightBtnNode.classList.add('text-2xl');
+        } else if (localStorage.theme === 'dark') {
+            themeDarkBtnNode.classList.add('text-[#ff0000]');
+            themeDarkBtnNode.classList.add('text-2xl');
+        }
 
-            settingsBtnNode.addEventListener('click', () => {
-                settingsBtnNode.classList.toggle('text-[#ff0000]');
-                settingsBtnNode.classList.toggle('text-2xl');
-            });
+        window.addEventListener('scroll', () => {
+            headerNode.classList.toggle('opacity-0', window.scrollY <= 368 && window.scrollY > 0 );
+            headerNode.classList.toggle('dark:bg-black/70', window.scrollY >= 368);
+            headerNode.classList.toggle('bg-white/70', window.scrollY >= 368);
+            headerNode.classList.toggle('backdrop-blur', window.scrollY >= 368);
+        });
 
-            const usernameBtnNode = document.getElementById('usernameBtn');
-            const signoutBtnNode = document.getElementById('signoutBtn');
+        usernameBtnNode.addEventListener('click', () => {
 
-            usernameBtnNode.addEventListener('click', () => {
+            usernameBtnNode.classList.toggle('text-[#ff0000]');
+            usernameBtnNode.classList.toggle('text-2xl');
 
-                usernameBtnNode.classList.toggle('text-[#ff0000]');
-                usernameBtnNode.classList.toggle('text-2xl');
-                settingsBtnNode.classList.toggle('hidden');
-                signoutBtnNode.classList.toggle('hidden');
+            settingsBtnNode.classList.toggle('hidden');
+            if (settingsBtnNode.classList.contains('text-2xl')) {
+                settingsBtnNode.click();
+            }
 
-                usernameBtnNode.animate([
-                    {opacity: '0'},
-                    {opacity: '0.15'},
-                    {opacity: '1'},
-                ], 300);
-            });
+            signoutBtnNode.classList.toggle('hidden');
 
-            const darkmodeBtnNode = document.getElementById('darkmodeBtn');
+            settingsMenuNode.classList.toggle('hidden');
+            if (settingsMenuNode.classList.contains('text-2xl')) {
+                settingsMenuNode.click();
+            }
 
-            darkmodeBtnNode.addEventListener('click', () => {
-                document.documentElement.classList.toggle('dark');
-            });
+            usernameBtnNode.animate([
+                {opacity: '0'},
+                {opacity: '0.15'},
+                {opacity: '1'},
+            ], 300);
+
+        });
+
+        settingsBtnNode.addEventListener('click', () => {
+
+            if (settingsMenuNode.classList.contains('text-2xl')) {
+                settingsMenuNode.click();
+            }
+
+            settingsBtnNode.classList.toggle('text-[#ff0000]');
+            settingsBtnNode.classList.toggle('text-2xl');
+
+        });
+
+        settingsMenuNode.addEventListener('click', () => {
+
+            if (settingsBtnNode.classList.contains('text-2xl')) {
+                settingsBtnNode.click();
+            }
+
+            settingsMenuNode.classList.toggle('text-[#ff0000]');
+            settingsMenuNode.classList.toggle('text-2xl');
+
+            themeBtnNode.classList.toggle('hidden');
+            if (themeBtnNode.classList.contains('text-2xl')) {
+                themeBtnNode.click();
+            }
+
+            settingsMenuNode.animate([
+                {opacity: '0'},
+                {opacity: '0.15'},
+                {opacity: '1'},
+            ], 300);
+
+        });
+
+        themeBtnNode.addEventListener('click', () => {
+
+            themeBtnNode.classList.toggle('text-[#ff0000]');
+            themeBtnNode.classList.toggle('text-2xl');
+
+            themeAutoBtnNode.classList.toggle('hidden');
+            themeLightBtnNode.classList.toggle('hidden');
+            themeDarkBtnNode.classList.toggle('hidden');
+
+            themeBtnNode.animate([
+                {opacity: '0'},
+                {opacity: '0.15'},
+                {opacity: '1'},
+            ], 300);
+
+        });
+
+        themeAutoBtnNode.addEventListener('click', () => {
+
+            themeAutoBtnNode.classList.add('text-[#ff0000]');
+            themeAutoBtnNode.classList.add('text-2xl');
+            themeLightBtnNode.classList.remove('text-[#ff0000]');
+            themeLightBtnNode.classList.remove('text-2xl');
+            themeDarkBtnNode.classList.remove('text-[#ff0000]');
+            themeDarkBtnNode.classList.remove('text-2xl');
+
+            localStorage.removeItem('theme');
+            if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                document.documentElement.classList.add('dark')
+            } else {
+                document.documentElement.classList.remove('dark')
+            };
+
+        });
+
+        themeLightBtnNode.addEventListener('click', () => {
+
+            themeLightBtnNode.classList.add('text-[#ff0000]');
+            themeLightBtnNode.classList.add('text-2xl');
+            themeAutoBtnNode.classList.remove('text-[#ff0000]');
+            themeAutoBtnNode.classList.remove('text-2xl');
+            themeDarkBtnNode.classList.remove('text-[#ff0000]');
+            themeDarkBtnNode.classList.remove('text-2xl');
+
+            localStorage.theme = 'light';
+            document.documentElement.classList.remove('dark');
+
+        });
+
+        themeDarkBtnNode.addEventListener('click', () => {
+
+            themeDarkBtnNode.classList.add('text-[#ff0000]');
+            themeDarkBtnNode.classList.add('text-2xl');
+            themeAutoBtnNode.classList.remove('text-[#ff0000]');
+            themeAutoBtnNode.classList.remove('text-2xl');
+            themeLightBtnNode.classList.remove('text-[#ff0000]');
+            themeLightBtnNode.classList.remove('text-2xl');
+
+            localStorage.theme = 'dark';
+            document.documentElement.classList.add('dark');
+
+        });
+
+        signoutBtnNode.addEventListener('click', () => {
+
+        });
+
+        anime({
+            targets: '#mainDiv',
+            opacity: [0, 1],
+            easing: 'easeInOutSine',
+            duration: 500,
+        });
 
         </script>
 
